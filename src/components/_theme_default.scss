@@ -1,0 +1,52 @@
+@import "./_reset.scss";
+@import "./_variables.scss";
+@import "./_basic.scss";
+@import "./_mixins.scss";
+@import "./_fonts.scss";
+@import "./_icons.scss";
+@import "./_theme_variables.scss";
+
+:disabled,
+[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.smpladmin_primary {
+    color: $theme_color_primaryText !important;
+    background-color: $theme_color_primaryBackground !important;
+
+    &:hover {
+        color: $theme_color_primaryText_hover !important;
+        background-color: $theme_color_primaryBackground_hover !important;
+    }
+}
+
+.smpladmin_success {
+    color: $theme_color_successText !important;
+    background-color: $theme_color_successBackground !important;
+
+    &:hover {
+        color: $theme_color_successText_hover !important;
+        background-color: $theme_color_successBackground_hover !important;
+    }
+}
+
+.smpladmin_danger {
+    color: $theme_color_dangerText !important;
+    background-color: $theme_color_dangerBackground !important;
+
+    &:hover {
+        color: $theme_color_dangerText_hover !important;
+        background-color: $theme_color_dangerBackground_hover !important;
+    }
+}
+
+.smpladmin_disabled {
+    // color: $theme_color_successText !important;
+    // background-color: $theme_color_successBackground !important;
+    cursor: not-allowed !important;
+    // pointer-events: none;
+    opacity: 0.5;
+}

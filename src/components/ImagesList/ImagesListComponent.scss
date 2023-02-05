@@ -1,0 +1,114 @@
+@use "sass:math";
+
+@import "./../variables";
+@import "./../mixins";
+@import "./../fonts";
+@import "./../theme_variables";
+
+// Colors of the component
+$color_Active: $color_Primary;
+$color_Grey: $theme_color_defaultText;
+$color_Hover: #ddd;
+
+// Sizes of the component
+$size_borderWeight: 2px;
+$size_elementHeight: 30px;
+
+div.smpladmin_ImagesList {
+    // border: 1px solid red;
+    display: inline-flex;
+    flex-flow: row-reverse;
+    cursor: default;
+    font-family: $font_roboto;
+    > * {
+        border: 1px solid white;
+        width: $size_elementHeight;
+        height: $size_elementHeight;
+        background-size: cover;
+        background-position: center;
+        margin-left: -10px;
+        &:last-child {
+            margin-left: 0;
+        }
+        &.smpladmin_ImagesList_ext {
+            border: none;
+            line-height: 1.5;
+            width: 20px;
+            margin-left: 5px;
+        }
+    }
+
+    //
+    // -webkit-border-radius: $size_elementHeight;
+    // -moz-border-radius: $size_elementHeight;
+    // border-radius: $size_elementHeight;
+
+    // -webkit-transition: all 0.2s ease-out;
+    // -moz-transition: all 0.2s ease-out;
+    // -o-transition: all 0.2s ease-out;
+    // transition: all 0.2s ease-out;
+
+    // &:focus {
+    //   outline: none;
+    // }
+    // &:hover {
+    //   background-color: $color_Hover;
+    // }
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    &.smpladmin_selectable {
+        display: flex;
+        flex-direction: column;
+        height: #{$size_elementHeight * 5 + 10px};
+        overflow-y: auto;
+        overflow-x: hidden;
+        .smpladmin_ImagesList_ext {
+            display: none;
+        }
+        > * {
+            margin: 1px;
+            border: 0;
+            position: relative;
+            flex-shrink: 0;
+            width: 100%;
+            height: $size_elementHeight;
+            background-size: $size_elementHeight !important;
+            background-position: left !important;
+            background-repeat: no-repeat !important;
+            &:hover {
+                background-color: $color_Hover;
+            }
+            &.smpladmin_selected {
+                color: $theme_color_primaryText_hover;
+                background-color: $theme_color_primaryBackground_hover;
+            }
+            > div {
+                width: 100%;
+                height: $size_elementHeight;
+                margin: 1px;
+                background-size: $size_elementHeight !important;
+                background-position: left !important;
+                background-repeat: no-repeat !important;
+            }
+            > span {
+                position: absolute;
+                top: #{math.div($size_elementHeight, 5) + 2px};
+                left: #{$size_elementHeight + 10px};
+                color: $theme_color_defaultText;
+                font-family: $font_roboto;
+                font-size: $fontsize_12;
+            }
+            > span:nth-of-type(1) {
+                color: $theme_color_defaultText;
+            }
+            > span:nth-of-type(2) {
+                left: unset;
+                right: 10px;
+                color: lighten($theme_color_defaultText, 30);
+            }
+        }
+    }
+}
