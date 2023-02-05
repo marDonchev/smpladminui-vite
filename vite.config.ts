@@ -25,7 +25,7 @@ export default defineConfig((configEnv) => ({
             entry: resolve("src", "components/index.ts"),
             name: "SmplAdminUI",
             formats: ["es", "umd"],
-            fileName: (format) => `smpladminui.${format}.js`,
+            fileName: `smpladminui`,
         },
         rollupOptions: {
             external: [...Object.keys(packageJson.peerDependencies)],
