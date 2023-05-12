@@ -37,7 +37,7 @@
             "import": "./dist/smpladminui.js",
             "require": "./dist/smpladminui.umd.cjs"
         },
-        "./style": "./dist/style.css"
+        "./dist/styles.css": "./dist/styles.css"
     },
     "main": "./dist/smpladminui.umd.cjs",
     "module": "./dist/smpladminui.js",

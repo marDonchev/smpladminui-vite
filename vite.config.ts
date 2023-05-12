@@ -30,6 +30,17 @@ export default defineConfig((configEnv) => ({
         },
         rollupOptions: {
             external: [...Object.keys(packageJson.peerDependencies)],
+            output: {
+                assetFileNames: ({ name }) => {
+                    if (/\.css$/.test(name ?? "")) {
+                        return "styles.css";
+                    }
+
+                    // default value
+                    // ref: https://rollupjs.org/guide/en/#outputassetfilenames
+                    return "assets/[name]-[hash][extname]";
+                },
+            },
         },
     },
 }));
