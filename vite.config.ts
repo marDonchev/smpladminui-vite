@@ -1,6 +1,5 @@
-import { resolve } from "node:path";
-
 import react from "@vitejs/plugin-react";
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import EsLint from "vite-plugin-linter";
@@ -21,6 +20,8 @@ export default defineConfig((configEnv) => ({
         }),
     ],
     build: {
+        cssCodeSplit: true,
+        cssMinify: true,
         lib: {
             entry: resolve("src", "components/index.ts"),
             name: "SmplAdminUI",
