@@ -44,7 +44,7 @@ export default defineConfig((configEnv) => ({
                         // ref: https://rollupjs.org/guide/en/#outputassetfilenames
                         return "assets/[name]-[hash][extname]";
                     } else {
-                        return "./[name]";
+                        return "[name][extname]";
                     }
                 },
             },
