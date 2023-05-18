@@ -77,33 +77,23 @@ export const PopupComponent = ({
     // Style
     const componentStyle = style || {};
 
-    return (
+    return visible ? (
         <>
+            <div className={"smpladmin_Reveal"} />
             <div className={classes.join(" ")} style={componentStyle}>
-                {children ? children : label}
+                <button className="smpladmin_Popup_CloseButton" onClick={handleOnClose}>
+                    &times;
+                </button>
+                {time && time > 0 ? (
+                    <div className={"smpladmin_Popup_CloseText"}>Close in {timeToCount}s</div>
+                ) : null}
+                <h1>{label ? label : null}</h1>
+                {hint ? <p className="smpladmin_Popup_Hint">{hint}</p> : null}
+                <div className={bodyClass}>{children ? children : null}</div>
+                {footer ? <div className="smpladmin_Popup_Footer">{footer}</div> : null}
             </div>
-
-            {visible ? (
-                <>
-                    <div className={"smpladmin_Reveal"} />
-                    <div className={classes.join(" ")} style={componentStyle}>
-                        <button className="smpladmin_Popup_CloseButton" onClick={handleOnClose}>
-                            &times;
-                        </button>
-                        {time && time > 0 ? (
-                            <div className={"smpladmin_Popup_CloseText"}>
-                                Close in {timeToCount}s
-                            </div>
-                        ) : null}
-                        <h1>{label ? label : null}</h1>
-                        {hint ? <p className="smpladmin_Popup_Hint">{hint}</p> : null}
-                        <div className={bodyClass}>{children ? children : null}</div>
-                        {footer ? <div className="smpladmin_Popup_Footer">{footer}</div> : null}
-                    </div>
-                </>
-            ) : null}
         </>
-    );
+    ) : null;
 };
 
 export default PopupComponent;
