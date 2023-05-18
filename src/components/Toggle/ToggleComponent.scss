@@ -13,17 +13,16 @@ $size_borderWeight: 2px;
 $size_elementHeight: 17px;
 
 div.smpladmin_Toggle {
-    border: 1px solid red;
-
     border: $size_borderWeight solid $color_Grey;
     width: 30px;
     height: $size_elementHeight;
     font-size: 0;
-    display: block;
+    display: flex;
     margin: 0.5rem !important;
     margin-left: 0 !important;
     position: relative;
     cursor: pointer;
+    align-items: center;
 
     -webkit-border-radius: $size_elementHeight;
     -moz-border-radius: $size_elementHeight;
