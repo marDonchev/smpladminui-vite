@@ -49,3 +49,11 @@ Processing.args = {
     processing: true,
     label: "Processing Button",
 };
+
+export const Submit = Template.bind({});
+
+Submit.args = {
+    label: "Submit Button",
+    type: "submit",
+    form: "myForm",
+};

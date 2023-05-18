@@ -12,6 +12,8 @@ export interface IButtonComponent {
     variant?: IVariant;
     processing?: boolean;
     children?: ReactNode;
+    type?: "button" | "reset" | "submit" | undefined;
+    form?: string;
 }
 export const ButtonComponent = ({
     label,
@@ -21,6 +23,7 @@ export const ButtonComponent = ({
     variant,
     processing,
     children,
+    ...props
 }: IButtonComponent) => {
     // Classes
     const classes = [
@@ -37,7 +40,12 @@ export const ButtonComponent = ({
         if (onClick) onClick(event);
     };
     return (
-        <button className={classes.join(" ")} style={componentStyle} onClick={handleClick}>
+        <button
+            className={classes.join(" ")}
+            style={componentStyle}
+            onClick={handleClick}
+            {...props}
+        >
             {children ? children : label}
         </button>
     );
